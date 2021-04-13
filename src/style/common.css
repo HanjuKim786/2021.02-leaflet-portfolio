@@ -1,0 +1,66 @@
+#map { height: 500px; width: 100%;}
+.controlPanel { 
+    margin: 5px; 
+    padding: 10px; 
+    display:flex;
+    justify-content: center;
+    border-top: 1px solid #03c75a;
+    border-top-style: dotted;
+    border-left: 2px solid #03c75a;
+    border-right: 2px solid #03c75a;
+    border-bottom: 35px solid #03c75a;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.leafletButton { 
+    width: 40px; 
+    height: 63px;
+    margin-right: 15px; 
+    padding:3px; 
+    border: 1px solid  #FFFFFF; 
+    border-radius: 5px;
+    background-color: white;
+}
+.leafletButton:hover { border: 1px solid  #000000; border-radius: 5px;}
+.leafletButton.selected{
+    border: 1px solid  #000000;
+    border-radius: 5px;
+    background-color: gray;
+}
+
+#busList{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.leafletContainer{
+    display:flex;
+    flex-direction: row;
+    height: 500px;
+    margin-right: 10px;
+}
+.restaurantList{
+    width: 250px;
+    overflow-y: scroll;
+}
+.leafletContainer ::-webkit-scrollbar{
+    width: 7px;
+}
+.leafletContainer ::-webkit-scrollbar-thumb { background: #ddd; border-radius: 10px; }
+.rTitle{
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgb(224, 224, 224);
+}
+.rItem{
+    width: 90%;
+    height: 100px;
+    margin:10px;
+    padding: 12px;
+    border: 1px solid green ;
+    border-radius: 5px;
+}
+.rItem:hover{
+    background-color: rgb(229, 240, 229);
+}

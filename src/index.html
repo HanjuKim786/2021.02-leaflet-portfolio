@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>2D Map WebApp</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <script src="REAFLET.js"></script>
+</head>
+<body>
+    <div class="leafletContainer">
+        <div class="restaurantList">
+            <div class="rTitle">
+                <h4>서울 식당 목록</h2>
+                <p style="font-size:12px; color: red;">항목을 클릭하면 이동합니다</p>
+            </div>
+            <div class="rItem" onclick="app.map.flyTo(L.latLng(37.53179920183087, 127.01040415274142), 18);">
+                <strong>맛있는 식당1</strong></br>
+                <p style="font-size:15px;margin-bottom: 0px;">12:00 ~ 20:30</p>
+                <p style="font-size:12px;">미슐랭 가이드 선정 식당</p>
+            </div>
+            <div class="rItem" onclick="app.map.flyTo(L.latLng(37.55526604062056, 126.97093560729769), 18);">
+                <strong>맛있는 식당2</strong></br>
+                <p style="font-size:15px;margin-bottom: 0px;">12:00 ~ 20:30</p>
+                <p style="font-size:12px;">혼자 옵서예</p>
+            </div>
+            <div class="rItem" onclick="app.map.flyTo(L.latLng(37.49854031026355, 127.03085755272663), 18);">
+                <strong>맛있는 식당3</strong></br>
+                <p style="font-size:15px;margin-bottom: 0px;">12:00 ~ 20:30</p>
+                <p style="font-size:12px;">순대국 맛집</p>
+            </div>
+            <div class="rItem" onclick="app.map.flyTo(L.latLng(37.49233826416844, 127.12034239767557), 18);">
+                <strong>맛있는 식당4</strong></br>
+                <p style="font-size:15px;margin-bottom: 0px;">12:00 ~ 20:30</p>
+                <p style="font-size:12px;">국밥 좋아하세요?</p>
+            </div>
+            <div class="rItem" onclick="app.map.flyTo(L.latLng(37.51524734775021, 127.13318441464146), 18);">
+                <strong>맛있는 식당5</strong></br>
+                <p style="font-size:15px;margin-bottom: 0px;">12:00 ~ 20:30</p>
+                <p style="font-size:12px;">밥이 힘이다</p>
+            </div>
+            <div class="rItem" onclick="app.map.flyTo(L.latLng(37.617654620725006, 127.07439157762516), 18);">
+                <strong>맛있는 식당6</strong></br>
+                <p style="font-size:15px;margin-bottom: 0px;">12:00 ~ 20:30</p>
+                <p style="font-size:12px;">밥드세요. 두번 드세요!</p>
+            </div>
+            <div class="rItem" onclick="app.map.flyTo(L.latLng(37.515080551648374, 126.94275176923905), 18);">
+                <strong>맛있는 식당7</strong></br>
+                <p style="font-size:15px;margin-bottom: 0px;">12:00 ~ 20:30</p>
+                <p style="font-size:12px;">이 지역 최고의 맛집</p>
+            </div>
+            <div class="rItem" onclick="app.map.flyTo(L.latLng(37.4860335436175, 126.9012452339535), 18);">
+                <strong>맛있는 식당8</strong></br>
+                <p style="font-size:15px;margin-bottom: 0px;">12:00 ~ 20:30</p>
+                <p style="font-size:12px;">이런 젠장 도라방스</p>
+            </div>
+            <div class="rItem" onclick="app.map.flyTo(L.latLng(37.48221095205044, 126.888597069579), 18);">
+                <strong>맛있는 식당9</strong></br>
+                <p style="font-size:15px;margin-bottom: 0px;">12:00 ~ 20:30</p>
+                <p style="font-size:12px;">스테이크 좋아해요?</p>
+            </div>
+            <div class="rItem" onclick="app.map.flyTo(L.latLng(37.56433485477839, 126.81092586227129), 18);">
+                <strong>맛있는 식당10</strong></br>
+                <p style="font-size:15px;margin-bottom: 0px;">12:00 ~ 20:30</p>
+                <p style="font-size:12px;">이 목록은 예시입니다.</p>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+    <div class="controlPanel">
+        <div class="leafletButton" onclick="changeButton('polyline');">
+            <div class="buttonMove">
+                <svg width="32" height="32" viewBox="0 0 16 16" class="bi bi-node-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13zm.5-7.5a.5.5 0 0 0-1 0v2h-2a.5.5 0 0 0 0 1h2v2a.5.5 0 0 0 1 0v-2h2a.5.5 0 0 0 0-1h-2v-2z"/>
+                </svg>
+                <h6 style='margin:0px;text-align:center;'><strong class="buttonText">이동</strong></h6>
+            </div>
+        </div>
+        <div class="leafletButton" onclick="changeButton('bus');">
+            <div class="buttonBus">
+                <svg width="32" height="32" viewBox="0 0 16 16" class="bi bi-geo" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+                </svg>
+                <h6 style='margin:0px;text-align:center;'><strong class="buttonText">버스</strong></h6>
+            </div>
+        </div>
+    </div>
+    <div class="help">
+        --README--<br>
+        Optimized Chrome<br>
+        <p>
+            <strong>이동 버튼 설명</strong><br>
+            이동 버튼을 누르고 지도 위에 원하는 지점을 클릭하세요.<br>
+            toop tip이 나타나면 이어서 계속해서 클릭해 나가면 선이 나타납니다.<br>
+            이 선은 이동할 경로를 나타내며 경로를 모두 결정했으면 아래 확정 버튼을 누르세요<br>
+            이제 오토바이가 나타나 경로를 따라 배달을 시작합니다.<br>
+            주의! 오토바이 이미지가 잘 보이도록 적당히 확대해 보세요.<br>    
+        </p>
+        <p>
+            <strong>버스 버튼 설명</strong><br>
+            서울 내 원하는 지점으로 이동하여 적당히 확대하새요. (예> 지하철역)<br>
+            버스버튼을 누르고 살짝 맵을 이동시켜 줍니다.<br>
+            현재 보고있는 위치 인근의 버스 정류소가 작은 원으로 표시됩니다.<br>
+            정류소를 클릭하면 정류소의 이름과 간략한 정보가 나타납니다.<br>
+            해당 정류소에서 음식을 받기 버튼을 누르면 해당 정류소 위에 마커가 나타납니다.<br>
+            정류소의 위치는 실제로 존재하는 것들이며 데이터는 외부에서 받아와 실시간 반영됩니다.
+        </p>
+    </div>
+
+
+
+    <!--
+        Bootstrap modal
+    -->
+    <div id='busStationInfoBox' class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">정류소 정보</h5>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="stationLng" name="stationLng" value="">
+                <input type="hidden" id="stationLat" name="stationLat" value="">
+                <strong><p id="stationName">서울역 정류소</p></strong>
+                <p>버스 정보 리스트 : 아래 정보는 예제로서 실제로 구현이 가능하다는 점을 알려드립니다.</p>
+                <div id="busList">
+                    <span class="badge badge-pill badge-danger">    </span>1300
+                    <span class="badge badge-pill badge-danger">    </span>1301
+                    <span class="badge badge-pill badge-danger">    </span>1302</br>
+                    <span class="badge badge-pill badge-primary">    </span>606
+                    <span class="badge badge-pill badge-primary">    </span>661</br>
+                    <span class="badge badge-pill badge-success">    </span>6615
+                    <span class="badge badge-pill badge-success">    </span>6613
+                    <span class="badge badge-pill badge-success">    </span>6616
+                    <span class="badge badge-pill badge-success">    </span>6716
+                    <span class="badge badge-pill badge-success">    </span>5626</br>
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="app.addMarker(app.map);">이곳에서 음식 픽업</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script>
+    var app = new App();
+    var type = "polyline";
+    var state = "off";
+    window.points = [];
+    /*
+    var marker = L.circleMarker(L.latLng(37.52410408047953,127.03024297021332), {
+        radius: 10, 
+        renderer: L.canvas(),
+        interactive: true,
+    }).addTo(app.map);
+    marker.on('click',()=>{
+        $('#busStationInfoBox').modal({
+            show:true,
+            backdrop:false,
+        });
+    });
+    */
+    function onMapClick(e) {
+        if(state == "on"){
+            if(type == "bus"){
+                if(app.picked.isClicked(e.layerPoint)){
+                    e.target = app.picked.isClicked(e.layerPoint);
+                    app.picked.displayInfo(e);
+                }
+            }
+            else{
+                if(window.points.length == 0){
+                console.log(e);
+                if(type=="polyline"){
+                    app.createObject("polyline", {point: e.latlng});
+                    $('.buttonMove>h6>.buttonText').html("확정");    
+                }
+                }else if(type == "polyline")
+                {
+                    app.addPoint(Object.assign({}, e.latlng));
+                }
+            }
+        }
+        window.points.push(Object.assign({}, e.latlng));
+        //e.originalEvent.stopPropagation();
+    }
+    function changeButton(t){
+        window.points = [];
+        
+        if(type == t){
+            if(type == "polyline"){
+                if(state == "on"){
+                    if(app.picked && app.picked.type == "polyline"){
+                        app.picked.done();
+                        app.picked.applyToMap(app.map);
+                        $('.buttonMove>h6>.buttonText').html("이동");
+                    }
+                }
+            }
+            //toggle
+            state = (state == "on") ? "off" : "on";
+        }else{
+            if(t == "bus"){
+                app.createObject("bus");
+                app.picked.applyToMap(app.map);
+            }
+            type = t;
+            state = "on";
+        }
+
+        refreshButton();
+    }
+    function refreshButton(){
+        if(type == "polyline"){
+            (state == "on") ? $(".buttonMove").parent().addClass("selected") : $(".buttonMove").parent().removeClass("selected");
+        }
+        else if(type == "bus"){
+            (state == "on") ? $(".buttonBus").parent().addClass("selected") : $(".buttonBus").parent().removeClass("selected");
+        }
+    }
+    function onMapMove(){
+        if(state == "on"){
+            if(type == "bus"){
+            app.picked.loadBusStationsByPos(app.map.getCenter(), app.map.getZoom(),app.map);
+            //app.picked.applyToMap(app.map);
+            }
+        }
+    }
+    app.map.on('click', onMapClick);
+    app.map.on('moveend', onMapMove);
+</script>
+</body>
+</html>
